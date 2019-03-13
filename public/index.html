@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .printchatbox 
+    {
+    background-color:#fff;
+    line-height: 2;color:#6E6A6B;font-size: 14pt;text-align:left;float: middle;
+    
+     height:2em;   
+}
+    .printchatbox1
+    {
+    background-color:#fff;
+    line-height: 2;color:#6E6A6B;font-size: 14pt;text-align:left;float: middle;
+    
+     height:2em;   
+}
+ 
+    </style>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script type="text/javascript" src="controllers/todoCtrl.js"></script>
+    
+
+
+<body ng-app="myApp">
+
+
+  <div class="container" ng-controller="todoCtrl">
+    <h2>Phone Directory Application</h2>
+    <hr>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Phone Directory Application</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td >
+        
+                <div id ="mybutton">
+              <input type="text" class="form-control" id="chatinput" ng-model="todoInput.Name" size="30" placeholder="Add Name"><br>
+               
+                
+               
+                
+                 <input type="tel" class="form-control" id="chatinput1" ng-model="todoInput.Number" size="30" placeholder="Add New Mobile Number"><br>
+                    <p> Subscribers to be added</p>
+                    Name:<div class="printchatbox" id="printchatbox"></div>
+               Mobile Number: <div class="printchatbox1" id="printchatbox1"></div>
+                
+                </div>
+
+              <button type="submit" class="btn btn-success" id="button" ng-click="todoAdd(); click(); ">Add Subscriber</button>
+            </td>
+      
+
+          </tr>
+          <tr ng-repeat="w in todoList">
+            <td>
+              <input type="checkbox" ng-model="w.done">
+                
+              Name:<span ng-bind="w.todoText" id="txt"></span>&nbsp;&nbsp;&nbsp;&nbsp;&emsp;
+                Mobile Number:<span ng-bind="w.todoAddNumber" id="txt" ></span>
+               
+            </td>
+
+
+          </tr>
+          <tr>
+
+            <td>
+              <button ng-click="remove()" class="btn btn-danger">Remove selected Subscriber</button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  
+    
+             <script>
+    var inputBox = document.getElementById("chatinput");
+
+    inputBox.onkeyup = function(){
+    var x = document.getElementById("printchatbox");
+    x.innerHTML = inputBox.value;
+};
+    </script>
+    <script>
+    var inputBox1 = document.getElementById("chatinput1");
+
+    inputBox1.onkeyup = function(){
+    var x = document.getElementById("printchatbox1");
+    x.innerHTML = inputBox1.value;
+};
+        
+    </script>
+       <script>
+    
+        $("#button").click(function () {
+    $("#printchatbox").load(location.href+" #printchatbox>*","");
+    $("#printchatbox1").load(location.href+" #printchatbox1>*","");
+});
+    </script>
+   
+ <!--   <script>
+    $(function click() { 
+      $( '#mybutton1' ).on( 'click', function() { 
+             $('#refresh').html( 'content for the div' ); 
+      }); 
+ });
+        </script>
+     <script>
+             $(function click1() { 
+      $( '#printchatbox' ).on( 'click1', function() { 
+             $('#refresh').html( 'content for the div' ); 
+      }); 
+ });
+    
+
+        
+  </script>
+    <script>
+             $(function click2() { 
+      $( '#printchatbox1' ).on( 'click2', function() { 
+             $('#refresh').html( 'content for the div' ); 
+      }); 
+ });
+    
+
+        
+  </script>  -->
+
+
+
+</body>
+
+</html>
